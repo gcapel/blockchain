@@ -1,0 +1,77 @@
+{
+    "chain": [
+        {
+            "index": 0,
+            "timestamp": "2023-04-10T07:58:59.401Z",
+            "data": "Block genesis Blockchain",
+            "previousHash": "0",
+            "hash": "78a73c1bca339d25b59d0165f7944b70cb63f26a2d8c6f436a03d1925235f63a"
+        },
+        {
+            "index": 1,
+            "timestamp": "2023-04-10T07:58:59.402Z",
+            "data": {
+                "nome": "giuseppe",
+                "cognome": "Capella",
+                "denaro": 5
+            },
+            "previousHash": "78a73c1bca339d25b59d0165f7944b70cb63f26a2d8c6f436a03d1925235f63a",
+            "hash": "06ae20fde07383074ece3de20dca1dfe44195f815419e13edc04623b25ec9851"
+        },
+        {
+            "index": 2,
+            "timestamp": "2023-04-10T07:58:59.403Z",
+            "data": {
+                "nome": "matteo",
+                "cognome": "Capella",
+                "denaro": 15
+            },
+            "previousHash": "06ae20fde07383074ece3de20dca1dfe44195f815419e13edc04623b25ec9851",
+            "hash": "989391b8d3b7f456c94900dda1704c9f9768b28260b2a21e19d4dbcde367f9d2"
+        },
+        {
+            "index": 3,
+            "timestamp": "2023-04-10T07:58:59.403Z",
+            "data": {
+                "nome": "pinco",
+                "cognome": "pallino",
+                "denaro": 50
+            },
+            "previousHash": "989391b8d3b7f456c94900dda1704c9f9768b28260b2a21e19d4dbcde367f9d2",
+            "hash": "6a7197ea8fe2ae7e9fe4358924e573d843a38960f3e658f83e9567c117f59fb9"
+        },
+        {
+            "index": 4,
+            "timestamp": "2023-04-10T07:58:59.404Z",
+            "data": {
+                "nome": "Franco",
+                "cognome": "Rossi",
+                "denaro": 13
+            },
+            "previousHash": "6a7197ea8fe2ae7e9fe4358924e573d843a38960f3e658f83e9567c117f59fb9",
+            "hash": "8dcfee7aed17dbe83c6cf1805f6304c2ccd4884d26f83dec3d4a85c1dd733960"
+        },
+        {
+            "index": 5,
+            "timestamp": "2023-04-10T07:58:59.406Z",
+            "data": {
+                "nome": "Luigi",
+                "cognome": "Gialli",
+                "denaro": 50
+            },
+            "previousHash": "8dcfee7aed17dbe83c6cf1805f6304c2ccd4884d26f83dec3d4a85c1dd733960",
+            "hash": "65df220fc9b0c4a59a34ca7144a04be635f10d9395806a48f3976f41b5cd8778"
+        },
+        {
+            "index": 6,
+            "timestamp": "2023-04-10T07:58:59.406Z",
+            "data": {
+                "nome": "Paolo",
+                "cognome": "Bianchi",
+                "denaro": 13
+            },
+            "previousHash": "65df220fc9b0c4a59a34ca7144a04be635f10d9395806a48f3976f41b5cd8778",
+            "hash": "52473aca0843225d14c62204c9339b2f5e74fac3cdb7d4a1f7eb899fd9d183d5"
+        }
+    ]
+}
