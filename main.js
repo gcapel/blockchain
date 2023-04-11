@@ -9,11 +9,26 @@ class Block {
         this.data = data;
         this.previousHash = previousHash;
         this.hash = this.calculateHash();
+        this.nonce = 0;
 
     }
 
     calculateHash() {
-        return SHA256(this.index + this.timestamp + this.previousHash + JSON.stringify(this.data)).toString();
+
+        return SHA256(this.index + this.timestamp + this.previousHash + JSON.stringify(this.data) + this.nonce).toString();
+
+    }
+
+    mineBlock(difficulty) {
+        while (this.hash.substring(0, difficulty) !== (Array(difficulty + 1).join('0'))) {
+            this.nonce++;
+            console.log(this.nonce);
+            this.hash = this.calculateHash();
+        }
+
+
+        console.log("E' stato minato un nuovo blocco con hash :" + this.hash);
+        console.log("Con un lavoro di cicli di calcolo pari a :" + this.nonce);
 
     }
 }
@@ -21,8 +36,9 @@ class Block {
 
 class Blockchain {
 
-    constructor() {
+    constructor(difficulty) {
         this.chain = [this.createGenesisBlock()];
+        this.difficulty = difficulty;
     }
 
 
@@ -37,7 +53,7 @@ class Blockchain {
 
     addBlock(newblock) {
         newblock.previousHash = this.getLatestBlock().hash;
-        newblock.hash = newblock.calculateHash();
+        newblock.mineBlock(this.difficulty);
         this.chain.push(newblock);
     }
 
@@ -61,13 +77,13 @@ class Blockchain {
 
 //PROGRAMMA di implementazione
 
-var moneta = new Blockchain();
+var moneta = new Blockchain(4);
 moneta.addBlock(new Block(1, { nome: "giuseppe", cognome: "Capella", denaro: 5 }));
 moneta.addBlock(new Block(2, { nome: "matteo", cognome: "Capella", denaro: 15 }));
 moneta.addBlock(new Block(3, { nome: "pinco", cognome: "pallino", denaro: 50 }));
 moneta.addBlock(new Block(4, { nome: "Franco", cognome: "Rossi", denaro: 13 }));
-moneta.addBlock(new Block(5, { nome: "Luigi", cognome: "Gialli", denaro: 50 }));
-moneta.addBlock(new Block(6, { nome: "Paolo", cognome: "Bianchi", denaro: 13 }));
+// moneta.addBlock(new Block(5, { nome: "Luigi", cognome: "Gialli", denaro: 50 }));
+// moneta.addBlock(new Block(6, { nome: "Paolo", cognome: "Bianchi", denaro: 13 }));
 
 console.log(JSON.stringify(moneta, null, 4));
 //Manometti la blockchain cambiando un valore
@@ -75,9 +91,9 @@ console.log(JSON.stringify(moneta, null, 4));
 //console.log(JSON.stringify(moneta, null, 4));
 
 //Scrivi il libro mastro della Bc su un file .bc
-// let file = fs.createWriteStream('fmoneta.bc', { encoding: 'utf8' });
-// file.write(JSON.stringify(moneta, null, 4));
-// file.close();
+let file = fs.createWriteStream('fmoneta.bc', { encoding: 'utf8' });
+file.write(JSON.stringify(moneta, null, 4));
+file.close();
 
 //Controlla la correttezza della blockchain
 
